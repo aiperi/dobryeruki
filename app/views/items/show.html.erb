@@ -1,0 +1,19 @@
+<h2><%= @item.title %></h2>
+
+<h3> Категория: <%= @item.category.name %></h3>
+<p>                                      </p>
+<p><%=  @item.description %></p>
+
+<h4><%= @item.author %></h4>
+
+<%= link_to "Назад", root_path %>
+
+<% if user_signed_in? %>
+
+	<% if @item.user_id == current_user.id %>
+
+		<%= link_to "Изменить", edit_item_path(@item) %>
+		<%= link_to "Удалить", item_path(@item), method: :delete, data: { confirm: "Вы уверены?"} %>
+	<% end %>
+<% end %>
+

@@ -1,0 +1,13 @@
+<h1>Изменить Пост</h1>
+<%= simple_form_for @item, :html => { :multipart => true } do |f| %>
+
+
+<%= f.select :category_id, @categories %>
+	
+	<%= f.input :title, label: "Название поста" %>
+    <%= f.input :description, label: "Описание"%>
+    <%= f.input :author, label: "Автор" %>
+    <%= f.button :submit,'Создать ' %>
+
+
+<% end %>

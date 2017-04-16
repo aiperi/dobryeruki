@@ -1,0 +1,10 @@
+<%= simple_form_for @item do |f| %>
+	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Выберите категорию")%>
+	
+	<%= f.input :title, label: "Название поста" %>
+    <%= f.input :description, label: "Описание"%>
+    <%= f.input :author, label: "Автор" %>
+    <%= f.button :submit,'Создать ' %>
+
+
+<% end %>
