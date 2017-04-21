@@ -18,7 +18,10 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', platforms: :ruby
-
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-google-oauth2'
+gem 'vk', '~> 0.6.5.53'
 
 
 

@@ -13,5 +13,45 @@
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
+ <div id="user-widget">
+  <% if current_user %>
+    Welcome <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+<div>
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      <% end %>
+    </div>
+    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
-<%= render "devise/shared/links" %>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1425613950893310',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
